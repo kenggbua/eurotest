@@ -73,7 +73,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   removePermissionToUser(permission: string){
-    this.dataService.removePermissionToUser(this.user.id, permission).subscribe((c) => {
+    this.dataService.removePermissionFromUser(this.user.id, permission).subscribe((c) => {
       this.allPermissions.push(this.user.permissions.filter((per: { permission: string; }) => per.permission == permission)[0])
         this.user.permissions.splice(this.user.permissions.indexOf(this.user.permissions.filter((per: { permission: string; }) => per.permission == permission)[0]), 1);
     });

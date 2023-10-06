@@ -66,15 +66,6 @@ export class DataService {
       }
       , httpOptions);
   }
-  removePermissionFromUser(userId: number, permission: string) {
-    const user = this.users.find(u => u.id === userId);
-    if (user) {
-      const index = user.permissions.indexOf(permission);
-      if (index > -1) {
-        user.permissions.splice(index, 1);
-      }
-    }
-  }
   assignPermissionToGroup(groupId: number, permission: string) {
     const group = this.groups.find(g => g.id === groupId);
     if (group && !group.permissions.includes(permission)) {
@@ -102,7 +93,7 @@ export class DataService {
     }, httpOptions);
   }
 
-  removePermissionToUser(userId: number, permission: string) {
+  removePermissionFromUser(userId: number, permission: string) {
     console.log(userId)
     console.log(permission)
     return this.http.post<any>(API_URL_PERMISSIONS + '/remove-permission', {
