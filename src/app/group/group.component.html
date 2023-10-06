@@ -1,0 +1,25 @@
+
+
+<div>
+  <input [(ngModel)]="groupName" placeholder="Enter Group Name" maxlength="15" minlength="1" required>
+  <button (click)="createGroup()" [disabled]="!groupName">Add Group</button>
+  <span *ngIf="message">{{message}}</span>
+</div>
+
+
+<thead>
+<tr>
+  <th>Groupname</th>
+  <th>Permissions</th>
+
+</tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let group of this.dataService.groups">
+  <td>{{group.groupName}}</td>
+  <td>{{group.permissions}}</td>
+  <td><button (click)="removeGroup(group.id)">Remove Group</button></td>
+
+</tr>
+</tbody>

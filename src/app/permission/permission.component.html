@@ -1,0 +1,7 @@
+<div>
+  <input [(ngModel)]="permissionName" placeholder="Enter Permission" required>
+  <button (click)="addPermission()"  [disabled]="!permissionName">Add Permission</button>
+</div>
+<div>
+  <span *ngFor="let permission2 of permissions">{{permission2}}<br></span>
+</div>

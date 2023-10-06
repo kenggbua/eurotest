@@ -1,0 +1,58 @@
+
+Permissions:
+<span *ngFor="let permission of user?.permissions">{{permission.permission}}, </span>
+<br>
+<thead>
+<tr>
+  <th>User in groups</th>
+  <th>Remove from group</th>
+  <th>Permissions from group</th>
+</tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let group of user?.userInGroups">
+  <td><span>{{group.groupName}}</span></td>
+  <td><button (click)="removeUserFromGroup(user.id, group.id)">Remove User</button></td>
+  <td *ngFor="let permission of group.permissions">{{permission.permission}}</td>
+</tr>
+</tbody>
+<br>
+<br>
+<br>
+<br>
+<thead>
+<tr>
+  <th>Groupname</th>
+  <th>Add to group</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let group of allGroups">
+  <td>{{group.groupName}}</td>
+  <td>
+    <button (click)="addUserToGroup(user.id, group.id)">Add User</button>
+  </td>
+</tr>
+</tbody>
+
+<br>
+<br>
+<br>
+<br>
+<thead>
+<tr>
+  <th>Permissions</th>
+  <th>Add/remove permission</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let permission of user?.permissions">
+  <td>{{permission.permission}}</td>
+  <td><button (click)="removePermissionToUser(permission.permission)">Remove permission</button></td>
+</tr>
+<tr *ngFor="let permission of allPermissions">
+  <td>{{permission.permission}}</td>
+  <td><button (click)="assignPermissionToUser(permission.permission)">Add permission</button></td>
+</tr>
+</tbody>

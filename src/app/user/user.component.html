@@ -1,0 +1,26 @@
+<div>
+  <input [(ngModel)]="userName" placeholder="Enter User Name" maxlength="15" minlength="1" required>
+  <button (click)="createUser()" [disabled]="!userName">Add User</button>
+  <span *ngIf="message">{{message}}</span>
+</div>
+
+
+
+
+<thead>
+<tr>
+  <th>Username</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let user of dataService.users">
+  <td><a [queryParams]="{
+  userName: user.userName
+  }" [routerLink]="['/user-profile']">{{user.userName}}</a></td>
+
+  <td><button (click)="removeUser(user.id)">Remove User</button></td>
+</tr>
+</tbody>
+<br>
+<br>
+
